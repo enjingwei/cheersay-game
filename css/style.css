@@ -1,0 +1,232 @@
+:root {
+    --primary-color: #f7931e; /* Naruto Orange */
+    --secondary-color: #343a40; /* Dark Grey */
+    --dark-bg: #212529; /* Very Dark Grey */
+    --light-text: #f8f9fa; /* Light Grey */
+    --card-bg: #343a40; /* Slightly lighter card background */
+    --card-border: #4f5b62; /* Card border color */
+    --section-padding: 60px 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    background-color: var(--dark-bg);
+    color: var(--light-text);
+}
+
+/* Header/Navbar Styling - Similar to Don't Starve Wiki */
+.navbar {
+   background-color: var(--secondary-color);
+    padding: 1rem 0;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+/*  background:  linear-gradient(to right, #ff00cc, #3333ff);; */
+} 
+
+.navbar-brand {
+    color: var(--primary-color) !important;
+    font-size: 1.8rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand img {
+    height: 60px; /* Adjust logo height */
+     margin-right: 10px;
+}
+
+.navbar-nav .nav-link {
+    color: var(--light-text) !important;
+    margin-left: 15px;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: var(--primary-color) !important;
+    text-decoration: underline;
+}
+
+/* Hero Section with Parallax */
+.hero-section {
+    position: relative;
+    height: 600px; /* Adjust height as needed */
+    background: url('../img/picture_51.png') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed; /* Parallax effect */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* Overlay for better text readability */
+	}
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+}
+
+.hero-content {
+    position: relative; /* Ensure content is above overlay */
+    z-index: 1;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.hero-content .btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    font-size: 1.2rem;
+    padding: 10px 30px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.hero-content .btn-primary:hover {
+    background-color: #e0831c; /* Slightly darker orange */
+    border-color: #e0831c;
+}
+
+/* Section Styling */
+.section {
+    padding: var(--section-padding);
+    background-color: var(--dark-bg); /* Ensure consistent background */
+}
+
+.section-title {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 2.5rem;
+    position: relative;
+}
+.section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary-color);
+    margin: 15px auto 0;
+}
+
+/* Card Styling - Similar to Wiki Info Boxes/Items */
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    color: var(--light-text);
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+     transform: translateY(-5px);
+     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+.card-img-top {
+    width: 100%;
+    height: 200px; /* Fixed height for images */
+    object-fit: cover; /* Crop and cover the area */
+    object-position: center; /* Center the image */
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+
+.card-text {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Feature Boxes (using Cards or custom layout) */
+.feature-box {
+     text-align: center;
+     padding: 30px;
+     background-color: var(--card-bg);
+     border: 1px solid var(--card-border);
+     margin-bottom: 20px;
+     border-radius: 8px;
+     transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.feature-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+ }
+
+.feature-box h4 {
+    color: var(--primary-color);
+    margin-top: 15px;
+}
+
+/* News/Updates List (using List Group) */
+.list-group {
+     background-color: transparent;
+}
+.list-group-item {
+     background-color: var(--card-bg);
+     border: 1px solid var(--card-border);
+     color: var(--light-text);
+     margin-bottom: 10px;
+     border-radius: 5px;
+     transition: background-color 0.3s ease;
+}
+.list-group-item:hover {
+     background-color: #495057; /* Darken on hover */
+}
+
+.list-group-item a {
+    color: var(--light-text);
+    text-decoration: none;
+    display: block;
+}
+.list-group-item a:hover {
+     color: var(--primary-color);
+}
+
+/* Footer Styling */
+footer {
+    background-color: var(--secondary-color);
+    color: var(--light-text);
+    text-align: center;
+    padding: 30px 0;
+    font-size: 0.9rem;
+}
+footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+footer a:hover {
+      text-decoration: underline;
+}
+
+/* Custom adjustments for responsiveness and spacing */
+.container {
+    max-width: 1200px; /* Adjust max-width for larger screens */
+}
+
+/* AOS animation adjustments (optional) */
+[data-aos] {
+    opacity: 0;
+    transition-property: opacity, transform;
+}
+
+[data-aos].aos-animate {
+    opacity: 1;
+}

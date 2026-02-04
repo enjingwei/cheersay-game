@@ -1,0 +1,170 @@
+/* 全局CSS变量 */
+:root {
+    --primary-color: #f7931e; /* Naruto Orange */
+    --secondary-color: #343a40; /* Dark Grey */
+    --dark-bg: #212529; /* Very Dark Grey */
+    --light-text: #f8f9fa; /* Light Grey */
+    --card-bg: #343a40; /* Slightly lighter card background */
+    --card-border: #4f5b62; /* Card border color */
+    --section-padding: 60px 0;
+}
+
+/* 基础样式 */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    background-color: var(--dark-bg);
+    color: var(--light-text);
+}
+
+/* 容器响应式调整 */
+.container {
+    max-width: 1200px; /* Adjust max-width for larger screens */
+}
+
+/* 导航栏样式 */
+.navbar {
+    background-color: var(--secondary-color);
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.navbar-brand {
+    color: var(--primary-color) !important;
+    font-size: 1.8rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand img {
+     height: 60px; /* Adjust logo height */
+     margin-right: 10px;
+}
+
+.navbar-nav .nav-link {
+    color: var(--light-text) !important;
+    margin-left: 15px;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: var(--primary-color) !important;
+    text-decoration: underline;
+}
+
+/* 页面Banner样式 */
+.page-banner {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../img/picture_09.png') no-repeat center center;
+    background-size: cover;
+    padding: 80px 0; /* Adjust padding */
+    text-align: center;
+    color: white;
+    height: 640px;
+    margin-top: 0; /* Adjust if navbar is fixed */
+}
+
+.page-banner h1 {
+     font-size: 3rem;
+     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+	 margin-top: 30%;
+}
+.page-banner p.lead {
+     font-size: 1.3rem;
+}
+
+/* 通用区块样式 */
+.section {
+    padding: var(--section-padding);
+    background-color: var(--dark-bg); /* Ensure consistent background */
+}
+
+.section-title {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 2.5rem;
+    position: relative;
+}
+.section-title::after {
+     content: '';
+     display: block;
+     width: 80px;
+     height: 4px;
+     background-color: var(--primary-color);
+     margin: 15px auto 0;
+}
+
+/* 剧情章节区块样式 */
+.story-arc {
+    margin-bottom: 80px; /* Space between arcs */
+    padding: 30px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+}
+
+.story-arc h3 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.story-arc img {
+    width: 100%;
+    height: 300px; /* Fixed height for arc images */
+    object-fit: cover; /* Crop and cover */
+    object-position: center;
+    border-radius: 5px;
+    margin-bottom: 20px; /* Space below image on small screens */
+}
+
+.story-content {
+     font-size: 1.1rem;
+     line-height: 1.8;
+}
+
+/* 固定导航栏的顶部内边距调整 */
+body > .container {
+     padding-top: 80px; /* Enough space for fixed navbar */
+}
+
+/* AOS动画调整 */
+[data-aos] {
+    opacity: 0;
+    transition-property: opacity, transform;
+}
+
+[data-aos].aos-animate {
+    opacity: 1;
+    margin-top: 10%;
+}
+
+/* 响应式：桌面端剧情章节布局 */
+@media (min-width: 768px) {
+     .story-arc img {
+         height: 350px; /* Taller images on larger screens */
+         margin-bottom: 0; /* Remove bottom margin when using columns */
+     }
+     .story-arc .row > div {
+         display: flex; /* Use flexbox for column content alignment */
+         align-items: center; /* Vertically center content */
+     }
+}
+
+/* 页脚样式 */
+footer {
+    background-color: var(--secondary-color);
+    color: var(--light-text);
+    text-align: center;
+    padding: 30px 0;
+    font-size: 0.9rem;
+}
+footer a {
+     color: var(--primary-color);
+     text-decoration: none;
+}
+footer a:hover {
+      text-decoration: underline;
+}
