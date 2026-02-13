@@ -15,7 +15,7 @@
 </head>
 <body>
    
-    <nav class="navbar navbar-expand-lg sticky-top">
+    <nav class="navbar navbar-expand-lg">
         <div class="container">
             <a class="navbar-brand" href="index.html">
                  <img src="img/logo.png" alt="Inluyasha Logo">
@@ -42,13 +42,27 @@
         </div>
     </nav>
  
-    <section class="hero-section" >
-        <div class="hero-content" data-aos="fade-up" >
-            <h1>体验战国时代的世界！</h1>
-            <p class="lead">探索犬夜叉游戏的无尽魅力</p>
-            <a href="characters.html" class="btn btn-primary btn-lg">探索人物</a>
-        </div>
-    </section>
+ <section class="hero-section">
+   <!-- 视频背景（懒加载版本） -->
+   <video 
+     class="hero-video"
+     src="video/mainVideo.mp4"  
+     poster="img/picture_51.png" 
+     autoplay 
+     muted 
+     loop 
+     playsinline
+     preload="none"  
+     loading="lazy"  
+     id="lazy-video"  
+   ></video>
+ 
+   <div class="hero-content" data-aos="fade-up">
+     <h1>体验战国时代的世界！</h1>
+     <p class="lead">探索犬夜叉游戏的无尽魅力</p>
+     <a href="characters.html" class="btn btn-primary btn-lg">探索人物</a>
+   </div>
+ </section>
  
     <section class="section" data-aos="fade-up">
         <div class="container">

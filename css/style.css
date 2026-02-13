@@ -14,29 +14,27 @@ body {
     color: var(--light-text);
 }
 
-/* Header/Navbar Styling - Similar to Don't Starve Wiki */
+/* Header/Navbar Styling - Transparent */
 .navbar {
-   background-color: var(--secondary-color);
+    background-color: transparent; /* 背景透明 */
     padding: 1rem 0;
-   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-/*  background:  linear-gradient(to right, #ff00cc, #3333ff);; */
-} 
+    box-shadow: none; /* 移除阴影，让它更通透 */
+    position: absolute; /* 让导航栏悬浮在视频上方 */
+    width: 100%; /* 占满宽度 */
+    top: 0; /* 固定在顶部 */
+    z-index: 10; /* 确保导航栏在视频上方 */
+}
 
 .navbar-brand {
-    color: var(--primary-color) !important;
+    color: #ffffff !important; /* 白色Logo文字 */
     font-size: 1.8rem;
     font-weight: bold;
     display: flex;
     align-items: center;
 }
 
-.navbar-brand img {
-    height: 60px; /* Adjust logo height */
-     margin-right: 10px;
-}
-
 .navbar-nav .nav-link {
-    color: var(--light-text) !important;
+    color: #ffffff !important; /* 白色导航链接 */
     margin-left: 15px;
     font-size: 1.1rem;
     transition: color 0.3s ease;
@@ -44,24 +42,40 @@ body {
 
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link.active {
-    color: var(--primary-color) !important;
+    color: var(--primary-color) !important; /* 悬停时变回橙色 */
     text-decoration: underline;
 }
 
-/* Hero Section with Parallax */
+.navbar-brand img {
+    height: 60px; /* Adjust logo height */
+    margin-right: 10px;
+}
+
+/* Hero Section with Video Background */
 .hero-section {
     position: relative;
-    height: 600px; /* Adjust height as needed */
-    background: url('../img/picture_51.png') no-repeat center center;
-    background-size: cover;
-    background-attachment: fixed; /* Parallax effect */
+    height: 600px; /* 固定 hero 区域高度 */
     color: white;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    /* Overlay for better text readability */
-	}
+    overflow: hidden; /* 防止视频超出 hero 区域 */
+    z-index: 1;
+}
+
+/* 视频背景样式 - 仅填充 hero 区域，不跟随滚动 */
+.hero-video {
+    position: absolute; /* 相对于 hero-section 定位，而非整个页面 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 视频铺满 hero 区域，保持比例 */
+    z-index: 0; /* 视频在 hero 区域最底层 */
+}
+
+/* 半透明遮罩 - 保证文字清晰可见 */
 .hero-section::before {
     content: "";
     position: absolute;
@@ -69,12 +83,14 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    background-color: rgba(0, 0, 0, 0.2); /* 调整透明度 */
+    z-index: 1; /* 遮罩在视频上，文字下 */
 }
 
+/* 确保文字内容在最上层 */
 .hero-content {
-    position: relative; /* Ensure content is above overlay */
-    z-index: 1;
+    position: relative;
+    z-index: 2;
 }
 
 .hero-content h1 {
@@ -129,8 +145,8 @@ body {
 }
 
 .card:hover {
-     transform: translateY(-5px);
-     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
 }
 
 .card-img-top {
@@ -157,18 +173,18 @@ body {
 
 /* Feature Boxes (using Cards or custom layout) */
 .feature-box {
-     text-align: center;
-     padding: 30px;
-     background-color: var(--card-bg);
-     border: 1px solid var(--card-border);
-     margin-bottom: 20px;
-     border-radius: 8px;
-     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    padding: 30px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    margin-bottom: 20px;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .feature-box:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
- }
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
 
 .feature-box h4 {
     color: var(--primary-color);
@@ -177,18 +193,18 @@ body {
 
 /* News/Updates List (using List Group) */
 .list-group {
-     background-color: transparent;
+    background-color: transparent;
 }
 .list-group-item {
-     background-color: var(--card-bg);
-     border: 1px solid var(--card-border);
-     color: var(--light-text);
-     margin-bottom: 10px;
-     border-radius: 5px;
-     transition: background-color 0.3s ease;
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    color: var(--light-text);
+    margin-bottom: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 .list-group-item:hover {
-     background-color: #495057; /* Darken on hover */
+    background-color: #495057; /* Darken on hover */
 }
 
 .list-group-item a {
@@ -197,7 +213,7 @@ body {
     display: block;
 }
 .list-group-item a:hover {
-     color: var(--primary-color);
+    color: var(--primary-color);
 }
 
 /* Footer Styling */
@@ -213,14 +229,57 @@ footer a {
     text-decoration: none;
 }
 footer a:hover {
-      text-decoration: underline;
+    text-decoration: underline;
 }
 
 /* Custom adjustments for responsiveness and spacing */
 .container {
     max-width: 1200px; /* Adjust max-width for larger screens */
 }
+/* 自定义弹窗样式 */
+.custom-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7); /* 半透明黑色遮罩 */
+    z-index: 9999; /* 确保弹窗在最顶层 */
+}
 
+.custom-alert {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff; /* 改为白色背景 */
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 30px 40px;
+    min-width: 300px;
+    max-width: 500px;
+    text-align: center;
+    font-size: 1.1rem;
+    color: #333333; /* 改为深灰色文字，确保清晰 */
+    z-index: 10000; /* 比遮罩层高 */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.alert-confirm-btn {
+    margin-top: 20px;
+    padding: 8px 25px;
+    background-color: #007bff; /* 蓝色按钮，更醒目 */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.alert-confirm-btn:hover {
+    background-color: #0056b3; /* 深蓝色 hover 效果 */
+}
 /* AOS animation adjustments (optional) */
 [data-aos] {
     opacity: 0;
